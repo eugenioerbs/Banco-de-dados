@@ -1,4 +1,4 @@
-create table categoria_memory 
+1create table categoria_memory 
 (id_categoria int auto_increment primary key, 
 ds_categoria varchar(50) 
 )ENGINE =memory;
