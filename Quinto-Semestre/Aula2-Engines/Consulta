@@ -1,0 +1,33 @@
+create database bd_turma_mat;
+use bd_turma_mat;
+
+create table categoria 
+(id_categoria int auto_increment primary key, 
+ds_categoria varchar(50) 
+);
+
+desc categoria;
+show global variables like "default_storage%";
+
+create table produto 
+(id_produto int auto_increment primary key,
+nm_produto char(50) default 'sem nome',
+id_categoria int references categoria(id_categoria) 
+);
+
+INSERT INTO categoria (ds_categoria) VALUES ('Processador'),('Memória'), ('SSD');
+INSERT INTO produto (nm_produto, id_categoria) VALUES ('Intel I5', 1);
+INSERT INTO produto (nm_produto, id_categoria) VALUES ('Monitor Full HD 29pol' 5);
+
+DESC categoria;
+
+SHOW GLOBAL VARIABLES LIKE "default_storage%"; -- inoDb é a engine
+
+SELECT tbs.TABLE_SCHEMA, tbs.`TABLE_NAME`, tbs.`ENGINE`, tbs.`ROW_FORMAT`
+FROM information_schema.`TABLES` tbs
+WHERE tbs.TABLE_SCHEMA = 'db_turma_mat';
+
+
+SELECT * FROM categoria;
+
+SELECT VERSION();
