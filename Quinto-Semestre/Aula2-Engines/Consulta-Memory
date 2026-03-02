@@ -1,0 +1,20 @@
+create table categoria_memory 
+(id_categoria int auto_increment primary key, 
+ds_categoria varchar(50) 
+)ENGINE = myisam;
+
+create table produto_memory
+(id_produto int auto_increment primary key,
+nm_produto char(50) default 'sem nome',
+id_categoria int references categoria_memory (id_categoria) 
+) ENGINE = myisam;
+
+
+INSERT INTO categoria_memory (ds_categoria) VALUES ('Processador'),('Memória'), ('SSD');
+INSERT INTO produto_memory (nm_produto, id_categoria) VALUES ('Intel I5', 1);
+INSERT INTO produto_memory (nm_produto, id_categoria) VALUES ('Monitor Full HD 29pol', 5);
+
+ALTER TABLE categoria_memory ENGINE = MYISAM; --este código nao funciou aqui pois ja tiha dados, mas funciona (alterar o engineee)
+
+SELECT * FROM categoria_memory;
+SELECT * FROM produto_memory;
